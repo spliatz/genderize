@@ -1,16 +1,27 @@
 'use strict'
-import {alphabet, USER} from "./view.js";
-import {DATA} from "./view.js";
-import {translate} from "./view.js";
+
+import {DATA,alphabet,translate,htmlELEMENTS} from "./view.js";
 
 function getURL(api,name)  {
     return `${api}?name=${translate(name)}`
 }
 
-const response = fetch(getURL(DATA.API,USER.NAME));
-const json = response.then(response => response.json());
+function genderize(api,name) {
+    const response = fetch(getURL(api, name));
+    const json = response.then(response => response.json());
 
-json.then(
-    result => {
-    alert(`${USER.NAME} - ${result.gender === 'male' ? "мужское имя" : "женское имя"}`);
-})
+    json.then(
+        result => {
+             htmlELEMENTS.gender.innerHTML = `${name} - ${result.gender === 'male' ? "мужское имя (male)" : "женское имя (female)"}`;
+        })
+}
+
+htmlELEMENTS.input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        // Do more work
+        htmlELEMENTS.gender.innerHTML = '';
+        genderize(DATA.API,htmlELEMENTS.input.value)
+        htmlELEMENTS.input.value = '';
+    }
+});
