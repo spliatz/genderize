@@ -61,3 +61,16 @@ body {
     color: rgba(113, 173, 252, 0.8);
     text-align: center;
 }
+
+@media (max-width: 768px) and (min-width: 200px) {
+    .input {
+        font-size: 50px;
+        height: 100%;
+    }
+    .gender {
+        font-size: 50px;
+    }
+    .wrapper {
+        margin-top: 200px;
+    }
+}
