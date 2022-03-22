@@ -17,6 +17,7 @@ body {
     background: -webkit-gradient(linear, left top, right top, from(#b9deed), to(#efefef));
     background: -o-linear-gradient(left, #b9deed, #efefef);
     background: linear-gradient(90deg, #b9deed, #efefef);
+    overflow: hidden;
 }
 
 .wrapper {
@@ -80,5 +81,25 @@ body {
         background-repeat: no-repeat;
         height: 100vh;
         width: 100vw;
+    }
+}
+
+@media (max-width: 380px) and (min-width: 350px) {
+    .gender {
+        margin-right: 25px;
+    }
+}
+
+@media (max-width: 321px) and (min-width: 200px) {
+    .wrapper{
+        margin-top: 100px;
+    }
+    .input{
+        margin-right: 50px;
+    }
+    .gender{
+        margin-right: 40px;
+        width: 280px;
+        overflow: hidden;
     }
 }
