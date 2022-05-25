@@ -1,26 +1,4 @@
-export const USER =  {
-    // NAME: prompt('Name: ', ''),
-}
-
-export const htmlELEMENTS = {
-     input : document.querySelector(".input"),
-     gender : document.querySelector('.gender'),
-}
-
-export function translate (string) {
-    const array = string.split('');
-    array.forEach((item,index) => {
-        array[index] = alphabet[item];
-    })
-    return (array.join(''));
-}
-
-export const DATA = {
-     API : 'https://api.genderize.io',
-     // "url" : `${this.serverUrl}?name=${USER.NAME}`,
-}
-
-export let alphabet = {
+const alphabet: {[key: string]: string} = {
     А: 'A', Б: 'B', В: 'V', Г: 'G', Д: 'D', Е: 'E', Ё: 'Yo', Ж: 'Zh',
     З: 'Z', И: 'I', Й: 'J', К: 'K', Л: 'L', М: 'M', Н: 'N', О: 'O',
     П: 'P', Р: 'R', С: 'S', Т: 'T', У: 'U', Ф: 'F', Х: 'H', Ц: 'C',
@@ -35,4 +13,12 @@ export let alphabet = {
     M:'M', N:'N',O:'O',P:'P',Q:'Q',R:'R',S:'S',T:'T',U:'U',V:'V',W:'W',X:'X',Y:'Y',Z:'Z',
     a:'a', b:'b', c:'c', d:'d', e:'e', f:'f',g:'g',h:'h',i:'i',j:'j',k:'k',l:'l',
     m:'m', n:'n',o:'o',p:'p',q:'q',r:'r',s:'s',t:'t',u:'u',v:'v',w:'w',x:'x',y:'y',z:'z',
+}
+
+export const translate = (string: string) => {
+    const array: Array<string> = string.split('');
+    array.forEach((item,index) => {
+        array[index] = alphabet[item];
+    })
+    return (array.join(''));
 }
