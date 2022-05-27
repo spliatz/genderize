@@ -7,9 +7,7 @@ const GenderField: React.FC<{gender: string, name: string}> = ({name, gender}) =
             <div className={"gender-field"}>{name} - {gender}</div>
         )
     }
-    return (
-        <div className={"gender-field"}/>
-    )
+    return null;
 }
 
 export default GenderField;
