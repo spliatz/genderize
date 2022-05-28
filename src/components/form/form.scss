@@ -14,15 +14,20 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-
 }
 
 .form-input {
   outline: none;
   text-align: center;
-  font-size: 18px;
   height: 25px;
   background: rgba(255,255,255,0);
   border: none;
   margin-bottom: 50px;
+  font-size: 22px;
+
+
+  &::placeholder {
+    color: #5979b0;
+    font-size: 22px;
+  }
 }
