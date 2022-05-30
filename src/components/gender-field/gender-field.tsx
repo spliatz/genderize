@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './gender-field.scss';
 
-const GenderField: React.FC<{gender: string, name: string}> = ({name, gender}) => {
+const GenderField: React.FC<{ gender: string, name: string }> = ({name, gender}) => {
     if (name && gender) {
         return (
-            <div className={"gender-field"}>{name} - {gender}</div>
-        )
+            <div className={'gender-field'}>{name} - {gender}</div>
+        );
     }
     return null;
-}
+};
 
 export default GenderField;

@@ -1,22 +1,7 @@
 import * as React from 'react';
 import { transliterate as translate } from 'transliteration';
+import { Response, IForm } from '../../types/types';
 import './form.scss';
-
-interface Response {
-    name: string;
-    gender: string | null;
-    probability: number;
-    count: number;
-}
-
-interface Result {
-    name: string,
-    gender: string
-}
-
-interface IForm {
-    setResult(argument: Result): any;
-}
 
 const Form: React.FC<IForm> = ({setResult}) => {
     const [value, setValue] = React.useState('');
@@ -30,13 +15,13 @@ const Form: React.FC<IForm> = ({setResult}) => {
         if (value) {
             fetch(`https://api.genderize.io?name=${translate(value)}`)
                 .then(res => res.json())
-                .then((json:Response) => {
+                .then((json: Response) => {
                     if (json.gender) {
                         setResult({name: value, gender: json.gender});
                     } else {
-                        setResult({name: '', gender: ''})
+                        setResult({name: '', gender: ''});
                     }
-                })
+                });
             setValue('');
         }
 
@@ -56,7 +41,6 @@ const Form: React.FC<IForm> = ({setResult}) => {
         </form>
     );
 };
-
 
 
 export default Form;
