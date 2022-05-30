@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { translate } from './russianToEnglishTranslate';
+import { transliterate as translate } from 'transliteration';
 import './form.scss';
 
 interface Response {
